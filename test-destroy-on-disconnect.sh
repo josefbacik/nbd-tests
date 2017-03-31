@@ -19,4 +19,5 @@ stat /dev/nbd0 > /dev/null 2>&1
 umount /mnt/btrfs-test
 stat /dev/nbd0 > /dev/null 2>&1
 [ $? -eq 0 ] && echo "WE FUCKED UP PART 2" && exit 1
+sleep 1
 rmmod nbd

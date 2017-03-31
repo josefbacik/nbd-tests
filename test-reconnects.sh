@@ -41,4 +41,5 @@ umount /mnt/btrfs-test
 ~/nbd/nbd-client -d /dev/nbd0
 pkill -9 $DISCONNECT_PID
 pkill -9 nbd-client
+sleep 1
 rmmod nbd

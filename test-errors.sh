@@ -19,4 +19,5 @@ mount /dev/nbd0 /mnt/btrfs-test
 umount /mnt/btrfs-test
 ~/nbd/nbd-client -d /dev/nbd0
 pkill -9 nbd-client
+sleep 1
 rmmod nbd

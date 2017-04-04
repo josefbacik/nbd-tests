@@ -16,6 +16,8 @@ sleep 5
 ~/nbd/nbd-client -d /dev/nbd0
 stat /dev/nbd0 > /dev/null 2>&1
 [ $? -ne 0 ] && echo "WE FUCKED UP PART 1" && exit 1
+pkill -9 fio
+wait
 umount /mnt/btrfs-test
 stat /dev/nbd0 > /dev/null 2>&1
 [ $? -eq 0 ] && echo "WE FUCKED UP PART 2" && exit 1

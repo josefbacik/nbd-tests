@@ -5,11 +5,11 @@ OPTS=
 
 echo $OPTS
 insmod ~/btrfs-next/drivers/block/nbd.ko
+#echo none > /sys/block/nbd0/queue/scheduler
 pkill -9 nbd-server
 ~/nbd/nbd-server -C ~/nbd/server.conf
 ~/nbd/nbd-client $OPTS -t 5 -N fail -C 4 localhost /dev/nbd0 &
 sleep 10
-#echo none > /sys/block/nbd0/queue/scheduler
 mkfs.btrfs -f /dev/nbd0
 mount /dev/nbd0 /mnt/btrfs-test
 ~/fio/fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 \

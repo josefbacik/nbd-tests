@@ -25,8 +25,9 @@ _random_disconnects() {
 echo $OPTS
 insmod ~/btrfs-next/drivers/block/nbd.ko
 pkill -9 nbd-server
+#echo none > /sys/block/nbd0/queue/scheduler
 ~/nbd/nbd-server -C ~/nbd/server.conf
-~/nbd/nbd-client -M -D 10 -L -t 5 -N fail -C 4 localhost /dev/nbd0 &
+~/nbd/nbd-client -M -D 10 -L -t 5 -N blah -C 4 localhost /dev/nbd0 &
 sleep 10
 _random_disconnects &
 DISCONNECT_PID=$!

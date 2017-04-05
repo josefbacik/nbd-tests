@@ -1,0 +1,16 @@
+[global]
+	blocksize=2m
+	readwrite=read
+	directory=/mnt/btrfs-test
+
+[job1]
+	filename=file1
+
+[job2]
+	filename=file2
+
+[job3]
+	filename=file3
+
+[job4]
+	filename=file4

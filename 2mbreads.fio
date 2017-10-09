@@ -2,6 +2,7 @@
 	blocksize=2m
 	readwrite=read
 	directory=/mnt/btrfs-test
+	direct=1
 
 [job1]
 	filename=file1

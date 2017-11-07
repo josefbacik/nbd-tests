@@ -11,7 +11,7 @@ mkfs.btrfs -f /dev/nbd0
 mount /dev/nbd0 /mnt/btrfs-test
 ~/fio/fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 \
 	--name=test --directory=/mnt/btrfs-test --nrfiles=48 --numjobs=12 \
-	--bs=4M --iodepth=256 --size=4800M --io_size=400G --readwrite=randrw \
+	--bs=4M --iodepth=256 --size=4800M --io_size=4G --readwrite=randrw \
 	--fsync=100
 umount /mnt/btrfs-test
 ~/nbd/nbd-client -d /dev/nbd0
